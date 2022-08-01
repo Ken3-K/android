@@ -1,23 +1,6 @@
-Skip to content
-Sign up
-Ken3-K
-/
-android
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-More
-android/.gitignore
-@Ken3-K
-Ken3-K Initial commit
- History
- 1 contributor
-129 lines (105 sloc)  1.76 KB
+android-auto-play-opencv-master/
+venv/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
