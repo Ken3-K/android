@@ -1,1 +1,0 @@
-from android_auto_play_opencv.AapoManager import *
