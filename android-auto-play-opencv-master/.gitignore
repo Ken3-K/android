@@ -5,3 +5,6 @@ __pycache__
 android_auto_play_opencv.egg-info
 build
 dist
+
+venv
+android-auto-play-opencv-master
