@@ -2,9 +2,7 @@
 # pip install android-auto-play-opencv
 import android_auto_play_opencv as am
 import subprocess
-from numpy import imag
 
-from pkg_resources import to_filename
 # adbpath = 'C:\\Users\\higik\\OneDrive\\ドキュメント\\platform-tools\\'
 adbpath = "/Applications/platform-tools/"
 imgpath = "konofun_oppo/img/"
