@@ -1,0 +1,8 @@
+{
+    "python.envFile": "${workspaceFolder}/venv",
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.pipenvPath": "",
+    "cSpell.words": [
+        "dumpsys"
+    ]
+}
