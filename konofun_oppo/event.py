@@ -19,8 +19,8 @@ def main():
     aapo.sleep(3)
     aapo.touchPos(1600, 370)
     aapo.sleep(3)
-    aapo.touchPos(1928, 740)
-    aapo.touchPos(1928, 740)
+    for _ in range(6):
+        aapo.touchPos(1928, 740)
     while True:
         # 画面キャプチャ
         aapo.screencap()

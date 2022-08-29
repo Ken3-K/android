@@ -1,3 +1,6 @@
+
+
+
 # This Python file uses the following encoding: utf-8
 # pip install android-auto-play-opencv
 import android_auto_play_opencv as am
@@ -11,17 +14,20 @@ imgpath = "konofun_oppo/img/"
 def main():
     aapo = am.AapoManager(adbpath)
     aapo.touchPos(750 + (round((random() - 0.5) * 10, 3)), 1020 + (round((random() - 0.5) * 10, 3))) # tap quest
-    aapo.sleep(2)
+    aapo.sleep(6)
     aapo.touchPos(1560 + (round((random() - 0.5) * 10, 3)), 400 + (round((random() - 0.5) * 10, 3))) # tap event
-    aapo.sleep(3)
+    aapo.sleep(5)
     aapo.touchPos(1450 + (round((random() - 0.5) * 10, 3)), 360 + (round((random() - 0.5) * 10, 3))) # tap quest
-    aapo.sleep(3)
+    aapo.sleep(4)
     aapo.touchPos(1600 + (round((random() - 0.5) * 10, 3)), 340 + (round((random() - 0.5) * 10, 3))) # select normal 12
-    aapo.sleep(2)
-    aapo.touchPos(1820 + (round((random() - 0.5) * 10, 3)), 840 + (round((random() - 0.5) * 10, 3))) # 挑戦準備
     aapo.sleep(3)
+    aapo.touchPos(1820 + (round((random() - 0.5) * 10, 3)), 840 + (round((random() - 0.5) * 10, 3))) # 挑戦準備
+    aapo.sleep(4)
     aapo.touchPos(1850 + (round((random() - 0.5) * 10, 3)), 1000 + (round((random() - 0.5) * 10, 3))) # 挑戦する
-    while True:
+    n = 0
+    nmax = 30
+    while n < nmax:
+        n += 1
 
         # CPU温度の取得。多分10倍されている。
         cpu_temp = check_output("adb shell cat /sys/class/thermal/thermal_zone9/temp", text=True, shell=True)
@@ -36,7 +42,7 @@ def main():
             y = 0
             checkimg, x, y = aapo.chkImg2(imgpath + "next.png")
             if checkimg:
-                aapo.touchPos(1000 + (round((random()  -0.5) * 10, 3)), 870 + (round((random() - 0.5) * 10, 3))) # わきみち対策
+                aapo.touchPos(50 + (round((random()  -0.5) * 10, 3)), 500 + (round((random() - 0.5) * 10, 3))) # わきみち対策
                 aapo.sleep(1)
                 aapo.touchPos(x, y)
                 # aapo.touchImg(imgpath + "next.png")
@@ -50,7 +56,7 @@ def main():
                 aapo.sleep(3)
                 aapo.touchPos(1850 + (round((random() - 0.5) * 10, 3)), 1000 + (round((random() - 0.5) * 10, 3))) # 挑戦する
             else:
-                aapo.touchPos(1000 + (round((random()  -0.5) * 10, 3)), 870 + (round((random() - 0.5) * 10, 3))) # わきみち対策
+                aapo.touchPos(50 + (round((random()  -0.5) * 10, 3)), 500 + (round((random() - 0.5) * 10, 3))) # わきみち対策
                 aapo.sleep(round(random(), 2) + 3)
             aapo.sleep(round(random(), 2) +1) 
         aapo.sleep(round(random(), 2) +2.5)

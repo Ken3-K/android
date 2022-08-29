@@ -8,9 +8,11 @@ imgpath = "konofun_oppo/img/"
 
 def main():
     aapo = am.AapoManager(adbpath)
-    cpu_temp = check_output(["adb", "shell", "cat", "/sys/class/thermal/thermal_zone9/temp"], text=True)
-    cpu_temp = int(cpu_temp)
-    print(cpu_temp/10)
+    aapo.screencap()
+    aapo.imgSave(imgpath + "temp.png")
+    # cpu_temp = check_output(["adb", "shell", "cat", "/sys/class/thermal/thermal_zone9/temp"], text=True)
+    # cpu_temp = int(cpu_temp)
+    # print(cpu_temp/10)
     # while True:
         # 画面キャプチャ
         # aapo.screencap()
