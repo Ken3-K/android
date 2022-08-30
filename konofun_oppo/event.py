@@ -3,9 +3,13 @@
 import android_auto_play_opencv as am
 from subprocess import check_output
 from random import random
+import os
 
-# adbpath = 'C:\\Users\\higik\\OneDrive\\ドキュメント\\platform-tools\\'
-adbpath = "/Users/kenzaburo/Library/Android/sdk/platform-tools/"
+if os.name == 'nt':
+    adbpath = 'C:\\Users\\higik\\OneDrive\\ドキュメント\\platform-tools\\'
+elif os.name == 'posix':
+    adbpath = "/Users/kenzaburo/Library/Android/sdk/platform-tools/"
+    
 imgpath = "konofun_oppo/img/"
 def main():
     aapo = am.AapoManager(adbpath)
