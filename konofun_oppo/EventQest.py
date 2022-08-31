@@ -32,12 +32,13 @@ def main():
     while n < nmax:
         n += 1
 
-        # CPU温度の取得。多分10倍されている。
-        cpu_temp = check_output("adb shell cat /sys/class/thermal/thermal_zone9/temp", text=True, shell=True)
-        cpu_temp = int(cpu_temp)
-        print(f"cpu temperature: {cpu_temp/10}°C")
-        # ついでにメモリ使用量も出力
-        print(check_output('adb shell dumpsys meminfo | grep -e "Used RAM" -e " Free RAM"', shell=True, text=True))
+        if os.name == 'posix':
+            # CPU温度の取得。多分10倍されている。
+            cpu_temp = check_output("adb shell cat /sys/class/thermal/thermal_zone9/temp", text=True, shell=True)
+            cpu_temp = int(cpu_temp)
+            print(f"cpu temperature: {cpu_temp/10}°C")
+            # ついでにメモリ使用量も出力
+            print(check_output('adb shell dumpsys meminfo | grep -e "Used RAM" -e " Free RAM"', shell=True, text=True))
         aapo.sleep(round(random(), 2) +31)
         while True:
             aapo.screencap()

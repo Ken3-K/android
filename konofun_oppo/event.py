@@ -34,12 +34,13 @@ def main():
             # aapo.screencap()
             # aapo.touchImg(imgpath + "enterroom.png")
             aapo.touchPos(1800, 1020)
-            # CPU温度の取得。多分10倍されている。
-            cpu_temp = check_output("adb shell cat /sys/class/thermal/thermal_zone9/temp", text=True, shell=True)
-            cpu_temp = int(cpu_temp)
-            # ついでにメモリ使用量も出力
-            print(f"cpu temperature: {cpu_temp/10}°C")
-            print(check_output('adb shell dumpsys meminfo | grep -e "Used RAM" -e " Free RAM"', shell=True, text=True))
+            if os.name == 'posix':
+                # CPU温度の取得。多分10倍されている。
+                cpu_temp = check_output("adb shell cat /sys/class/thermal/thermal_zone9/temp", text=True, shell=True)
+                cpu_temp = int(cpu_temp)
+                # ついでにメモリ使用量も出力
+                print(f"cpu temperature: {cpu_temp/10}°C")
+                print(check_output('adb shell dumpsys meminfo | grep -e "Used RAM" -e " Free RAM"', shell=True, text=True))
             print("sleep 40 second")
             aapo.sleep(40)
             while True:

@@ -1,9 +1,12 @@
 # This Python file uses the following encoding: utf-8
 # pip install android-auto-play-opencv
 import android_auto_play_opencv as am
-from subprocess import check_output
-# adbpath = 'C:\\Users\\higik\\OneDrive\\ドキュメント\\platform-tools\\'
-adbpath = "/Users/kenzaburo/Library/Android/sdk/platform-tools/"
+from subprocess import check_outputimport os
+
+if os.name == 'nt':
+    adbpath = 'C:\\Users\\higik\\OneDrive\\ドキュメント\\platform-tools\\'
+elif os.name == 'posix':
+    adbpath = "/Users/kenzaburo/Library/Android/sdk/platform-tools/"
 imgpath = "konofun_oppo/img/"
 
 def main():
