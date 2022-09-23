@@ -39,8 +39,8 @@ def main():
                 cpu_temp = check_output("adb shell cat /sys/class/thermal/thermal_zone9/temp", text=True, shell=True)
                 cpu_temp = int(cpu_temp)
                 # ついでにメモリ使用量も出力
-                print(f"cpu temperature: {cpu_temp/10}°C")
-                print(check_output('adb shell dumpsys meminfo | grep -e "Used RAM" -e " Free RAM"', shell=True, text=True))
+                # print(f"cpu temperature: {cpu_temp/10}°C")
+                # print(check_output('adb shell dumpsys meminfo | grep -e "Used RAM" -e " Free RAM"', shell=True, text=True))
             print("sleep 40 second")
             aapo.sleep(40)
             while True:
@@ -68,8 +68,8 @@ def main():
                         aapo.sleep(3)
                         aapo.touchPos(1600, 370)
                         aapo.sleep(3)
-                        aapo.touchPos(1928, 740)
-                        aapo.touchPos(1928, 740)
+                        for _ in range(6):
+                            aapo.touchPos(1928, 740)
                         # aapo.touchImg(imgpath + "chosen.png")
                         break
                 elif aapo.touchImg(imgpath + "backroom.png"):
@@ -88,8 +88,8 @@ def main():
                         aapo.sleep(3)
                         aapo.touchPos(1600, 370)
                         aapo.sleep(3)
-                        aapo.touchPos(1928, 740)
-                        aapo.touchPos(1928, 740)
+                        for _ in range(6):
+                            aapo.touchPos(1928, 740)
                         # aapo.touchImg(imgpath + "chosen.png")
                         break
                 aapo.sleep(2)

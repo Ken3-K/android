@@ -38,7 +38,7 @@ def main():
             cpu_temp = int(cpu_temp)
             print(f"cpu temperature: {cpu_temp/10}°C")
             # ついでにメモリ使用量も出力
-            print(check_output('adb shell dumpsys meminfo | grep -e "Used RAM" -e " Free RAM"', shell=True, text=True))
+            # print(check_output('adb shell dumpsys meminfo | grep -e "Used RAM" -e " Free RAM"', shell=True, text=True))
         aapo.sleep(round(random(), 2) +31)
         while True:
             aapo.screencap()
@@ -77,3 +77,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    subprocess.run("say -v Samantha 'Loop is now finished!'", shell=True)
