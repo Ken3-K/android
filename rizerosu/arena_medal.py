@@ -1,3 +1,5 @@
+# アリーナメダルの交換
+
 import android_auto_play_opencv as am
 import subprocess
 from random import random
@@ -19,3 +21,18 @@ def RandomSleep(time):
     dt = (random() - 0.5) * 1
     aapo.sleep(time + dt)
 
+def change_medal():
+    TouchRandomPos(850, 600)
+    RandomSleep(1)
+    aapo.swipeTouchPos(450, 1350, 900, 1350, 500)
+    TouchRandomPos(750, 1550)
+    RandomSleep(2)
+
+def main():
+
+    n = 6
+    for _ in range(n):
+        change_medal()
+
+if __name__ == "__main__":
+    main()
