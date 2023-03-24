@@ -33,7 +33,7 @@ def hammer():
         TouchRandomPos(350, 1530)
         exit()
 
-def auto():
+def auto(event=False):
     TouchRandomPos(700, 1630)
     aapo.sleep(2)
     aapo.screencap()
@@ -42,14 +42,32 @@ def auto():
             break
         aapo.sleep(1.5)
         aapo.screencap()
-    if aapo.chkImg(imgpath + "sp_hammer.png") or aapo.chkImg(imgpath + "sp_small.png"):
-        subprocess.run("afplay /System/Library/Sounds/Glass.aiff", shell=True)
-
+    if event==True:
+        # if aapo.chkImg(imgpath + result_image2):
+        if aapo.chkImg(imgpath + result_image1) or aapo.chkImg(imgpath + result_image2):
+            subprocess.run("afplay /System/Library/Sounds/Glass.aiff", shell=True)
+            is_continue = input("continue?: ")
+            if is_continue == "":
+                TouchRandomPos(350, 1590)
+                aapo.sleep(1.5)
+                auto(event)
+            else:
+                exit()
     else:
-        TouchRandomPos(350, 1590)
-        aapo.sleep(1.5)
-        auto()
+        if aapo.chkImg(imgpath + result_image3):
+            subprocess.run("afplay /System/Library/Sounds/Glass.aiff", shell=True)
+            # print(aapo.chkImg2(imgpath + result_image4))
+            exit()
+    TouchRandomPos(350, 1590)
+    aapo.sleep(1.5)
+    auto(event)
 
 if __name__ == "__main__":
+
+    result_image1 = "sp_hammer.png"
+    result_image2 = "sp_small.png" # for event
+    result_image3 = "subayasa.png"
+    result_image4 = "start_gage.png"
+
     hammer()
-    # auto()
+    # auto(event=False)

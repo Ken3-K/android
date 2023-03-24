@@ -22,8 +22,8 @@ def RandomSleep(time):
     aapo.sleep(time + dt)
 
 def to_grandarena():
-    TouchRandomPos(540, 1550) # home to arena
-    RandomSleep(2)
+    # TouchRandomPos(540, 1550) # home to arena
+    # RandomSleep(2)
     while True:
         aapo.screencap()
         if aapo.touchImg(imgpath + "grand-arena.png"): # to grand arena
@@ -73,13 +73,14 @@ def AfterBattle():
 
 def main():
     # n = int(input("何回やりますか："))
-    n=5
+    n=4
     to_grandarena()
     for i in range(0, n):
         to_list()
         battle()
-        aapo.sleep(20)
+        aapo.sleep(13)
         AfterBattle()
 
 if __name__ == "__main__":
     main()
+    subprocess.run("afplay /System/Library/Sounds/Glass.aiff", shell=True)

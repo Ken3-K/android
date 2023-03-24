@@ -57,8 +57,9 @@ def AfterBattle():
 
 
 def main():
-    n = 12
-    for i in range(n):
+    n = 13
+    start = 0
+    for i in range(start, n):
         if i < 4:
             TouchRandomPos(500, 1700 - 300 * i)
         else:

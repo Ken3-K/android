@@ -30,7 +30,7 @@ def change_medal():
 
 def main():
 
-    n = 6
+    n = 4
     for _ in range(n):
         change_medal()
 
